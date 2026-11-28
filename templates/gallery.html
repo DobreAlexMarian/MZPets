@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Gallery – MZPets{% endblock %}
+{% block content %}
+
+<section class="section">
+    <div class="section-title">
+        <div class="underline"></div>
+        <h2>Pet Gallery</h2>
+        <p>Browse our adorable companions looking for a loving home.</p>
+    </div>
+
+    <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterPets('all')">All</button>
+        <button class="filter-btn" onclick="filterPets('Dog')">Dogs</button>
+        <button class="filter-btn" onclick="filterPets('Cat')">Cats</button>
+        <button class="filter-btn" onclick="filterPets('Bird')">Birds</button>
+        <button class="filter-btn" onclick="filterPets('Other')">Other</button>
+    </div>
+
+    <div class="card-grid" id="gallery-grid">
+        {% for pet in pets %}
+        <div class="card pet-card" data-species="{{ pet.species }}">
+            <img class="card-img" src="{{ pet.image_url }}" alt="{{ pet.name }}" />
+            <div class="card-body">
+                <h3>{{ pet.name }}</h3>
+                <p>{{ pet.description }}</p>
+                <span class="tag">{{ pet.species }}</span>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<script>
+function filterPets(species) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+    document.querySelectorAll('.pet-card').forEach(card => {
+        if (species === 'all' || card.dataset.species === species) {
+            card.style.display = '';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+</script>
+
+{% endblock %}

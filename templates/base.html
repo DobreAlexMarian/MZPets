@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}MZPets{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="{{ url_for('home') }}" class="logo">MZ<span>Pets</span></a>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('services_page') }}">Services</a></li>
+            <li><a href="{{ url_for('gallery') }}">Gallery</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        </ul>
+    </nav>
+
+    {% block content %}{% endblock %}
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>MZPets</h4>
+                <p>Your one‑stop shop for happy, healthy pets. We provide top‑quality products, services, and adoption programs.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('about') }}">About Us</a></li>
+                    <li><a href="{{ url_for('services_page') }}">Services</a></li>
+                    <li><a href="{{ url_for('gallery') }}">Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="{{ url_for('services_page') }}">Pet Adoption</a></li>
+                    <li><a href="{{ url_for('services_page') }}">Grooming</a></li>
+                    <li><a href="{{ url_for('services_page') }}">Nutrition</a></li>
+                    <li><a href="{{ url_for('services_page') }}">Accessories</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li>123 Pet Lane, Cityville</li>
+                    <li>+1 234 567 890</li>
+                    <li>info@mzpets.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MZPets. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

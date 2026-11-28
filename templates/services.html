@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Services – MZPets{% endblock %}
+{% block content %}
+
+<section class="section">
+    <div class="section-title">
+        <div class="underline"></div>
+        <h2>Our Services</h2>
+        <p>Everything your pet needs, all in one place.</p>
+    </div>
+    <div class="card-grid">
+        {% for svc in services %}
+        <div class="service-card">
+            <div class="service-icon">{{ svc.icon }}</div>
+            <h3>{{ svc.name }}</h3>
+            <p>{{ svc.description }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-banner">
+    <h2>Need a Custom Service?</h2>
+    <p>We tailor solutions for every pet and owner. Contact us to discuss your needs.</p>
+    <a href="{{ url_for('contact') }}" class="btn btn-white">Contact Us</a>
+</div>
+
+{% endblock %}
