@@ -1,0 +1,44 @@
+/* Base stylesheet – contains global variables, resets, navbar, footer, and common components */
+:root {
+    --orange-dark:  #D35400;
+    --orange:       #E67E22;
+    --orange-light: #F39C12;
+    --orange-pale:  #FFF3E0;
+    --white:        #FFFFFF;
+    --off-white:    #FAFAFA;
+    --gray-light:   #F5F5F5;
+    --gray:         #9E9E9E;
+    --gray-dark:    #424242;
+    --text:         #333333;
+    --shadow:       0 4px 20px rgba(0,0,0,0.08);
+    --radius:       12px;
+    --transition:   all 0.3s ease;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--off-white);
+    color: var(--text);
+    line-height: 1.7;
+}
+a { text-decoration:none; color:inherit; }
+ul { list-style:none; }
+img { max-width:100%; display:block; }
+
+/* Navbar */
+.navbar { position:sticky; top:0; z-index:1000; background: var(--white); box-shadow:0 2px 12px rgba(0,0,0,0.06); padding:0 40px; display:flex; align-items:center; justify-content:space-between; height:70px; }
+.navbar .logo { font-size:1.6rem; font-weight:800; color:var(--orange); letter-spacing:-0.5px; }
+.navbar .logo span { color:var(--gray-dark); }
+.navbar ul { display:flex; gap:30px; }
+.navbar ul a { font-weight:600; font-size:0.95rem; color:var(--gray-dark); padding:8px 0; position:relative; transition:var(--transition); }
+.navbar ul a::after { content:''; position:absolute; bottom:0; left:0; width:0; height:3px; background:var(--orange); border-radius:2px; transition:width .3s ease; }
+.navbar ul a:hover { color:var(--orange); }
+.navbar ul a:hover::after { width:100%; }
+
+/* Footer */
+footer { background: var(--gray-dark); color: rgba(255,255,255,0.7); padding:48px 40px 24px; }
+.footer-grid { max-width:1200px; margin:auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:40px; margin-bottom:32px; }
+.footer-col h4 { color:var(--white); font-size:1rem; margin-bottom:16px; }
+.footer-bottom { text-align:center; border-top:1px solid rgba(255,255,255,0.1); padding-top:20px; font-size:0.82rem; }
