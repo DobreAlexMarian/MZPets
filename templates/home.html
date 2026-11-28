@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block title %}Home – MZPets{% endblock %}
+{% block content %}
+
+<!-- Hero -->
+<section class="hero">
+    <h1>Your Pets Deserve the Best</h1>
+    <p>Premium food, accessories, grooming, and adoption — all under one roof.</p>
+    <div class="cta-group">
+        <a href="{{ url_for('services_page') }}" class="btn btn-white">Our Services</a>
+        <a href="{{ url_for('gallery') }}" class="btn btn-outline">Meet Our Pets</a>
+    </div>
+</section>
+
+<!-- Stats -->
+<div class="stats-bar">
+    <div class="stat"><h3>500+</h3><p>Pets Adopted</p></div>
+    <div class="stat"><h3>1200+</h3><p>Happy Customers</p></div>
+    <div class="stat"><h3>15+</h3><p>Years Experience</p></div>
+    <div class="stat"><h3>50+</h3><p>Premium Brands</p></div>
+</div>
+
+<!-- Featured Pets -->
+<section class="section">
+    <div class="section-title">
+        <div class="underline"></div>
+        <h2>Featured Pets</h2>
+        <p>Looking for a new family member? Check out some of our adorable companions.</p>
+    </div>
+    <div class="card-grid">
+        {% for pet in featured_pets %}
+        <div class="card">
+            <img class="card-img" src="{{ pet.image_url }}" alt="{{ pet.name }}" />
+            <div class="card-body">
+                <h3>{{ pet.name }}</h3>
+                <p>{{ pet.description }}</p>
+                <span class="tag">{{ pet.species }}</span>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Services Preview -->
+<section class="section" style="background:var(--gray-light); max-width:100%; padding-left:40px; padding-right:40px;">
+    <div class="section-title">
+        <div class="underline"></div>
+        <h2>What We Offer</h2>
+        <p>Everything your pet needs, from nutrition to pampering.</p>
+    </div>
+    <div class="card-grid" style="max-width:1200px; margin:auto;">
+        {% for svc in services %}
+        <div class="service-card">
+            <div class="service-icon">{{ svc.icon }}</div>
+            <h3>{{ svc.name }}</h3>
+            <p>{{ svc.description }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="section">
+    <div class="section-title">
+        <div class="underline"></div>
+        <h2>What Our Customers Say</h2>
+    </div>
+    <div class="testimonial-grid">
+        {% for t in testimonials %}
+        <div class="testimonial">
+            <p>{{ t.quote }}</p>
+            <span class="author">— {{ t.author }}</span>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- CTA Banner -->
+<div class="cta-banner">
+    <h2>Ready to Find Your Perfect Pet?</h2>
+    <p>Visit our shop or browse our gallery online. We'd love to help you find a new best friend.</p>
+    <a href="{{ url_for('contact') }}" class="btn btn-white">Get in Touch</a>
+</div>
+
+{% endblock %}

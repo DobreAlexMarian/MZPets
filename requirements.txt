@@ -1,1 +1,2 @@
-Flask==3.0.0
+# Minimal requirements for the demo
+Flask>=2.3.0

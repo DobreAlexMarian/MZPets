@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}About – MZPets{% endblock %}
+{% block content %}
+
+<section class="section">
+    <div class="section-title">
+        <div class="underline"></div>
+        <h2>About MZPets</h2>
+        <p>Caring for animals since 2011.</p>
+    </div>
+
+    <div class="about-grid">
+        <div class="about-text">
+            <h3>Our Story</h3>
+            <p>MZPets was founded with a simple mission: give every animal the love, care, and home it deserves. What started as a small neighbourhood pet shop has grown into a trusted destination for pet owners across the city.</p>
+            <p>Our team of passionate animal lovers works tirelessly to source the best products, deliver expert grooming, and facilitate responsible adoptions.</p>
+        </div>
+        <div class="about-text">
+            <h3>Our Values</h3>
+            <ul class="values-list">
+                <li><span class="dot"></span> Animal welfare above everything</li>
+                <li><span class="dot"></span> Responsible breeding and adoption</li>
+                <li><span class="dot"></span> Premium, ethically‑sourced products</li>
+                <li><span class="dot"></span> Community education and outreach</li>
+                <li><span class="dot"></span> Sustainability in everything we do</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Team -->
+<section class="section" style="background:var(--gray-light); max-width:100%; padding-left:40px; padding-right:40px;">
+    <div class="section-title">
+        <div class="underline"></div>
+        <h2>Meet the Team</h2>
+        <p>Dedicated professionals who love animals as much as you do.</p>
+    </div>
+    <div class="team-grid" style="max-width:1200px; margin:auto;">
+        {% for member in team %}
+        <div class="team-card">
+            <div class="team-avatar">{{ member.emoji }}</div>
+            <h4>{{ member.name }}</h4>
+            <p>{{ member.role }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}
